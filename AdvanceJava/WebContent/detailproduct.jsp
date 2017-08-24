@@ -26,7 +26,7 @@
 <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-<%
+	<%
 	Product product = (Product) request.getAttribute("product");
 	Category category = (Category) request.getAttribute("category"); 
 %>
@@ -37,8 +37,10 @@
 	<div class="container">
 		<ul class="breadcrumb">
 			<li><a href="index.html">Trang chủ</a></li>
-			<li><a href="<%=request.getContextPath()%>/Category?CategoryId=<%=category.getCategoryId()%>"><%=category.getCategoryName() %></a></li>
-			<li><a href="<%=request.getContextPath()%>/Product?ProductId=<%=product.getProductId() %>"><%=product.getProductName() %></a></li>
+			<li><a
+				href="<%=request.getContextPath()%>/Category?CategoryId=<%=category.getCategoryId()%>"><%=category.getCategoryName() %></a></li>
+			<li><a
+				href="<%=request.getContextPath()%>/Product?ProductId=<%=product.getProductId() %>"><%=product.getProductName() %></a></li>
 		</ul>
 		<div id="content" class="container row">
 			<div class="row row-m-g-l">
@@ -103,49 +105,60 @@
 							<div class="row"></div>
 						</div>
 					</div>
-				</div>
-			</div>
-			<div class="clearfix"></div>
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="tab">
-						<button class="tablinks"
-							onclick="openCity(event, 'products_describe')">Mô tả</button>
-						<button class="tablinks"
-							onclick="openCity(event, 'products_reviews')">Đánh giá</button>
-					</div>
-					<div id="products_describe" class="tabcontent">
-						<h2>Mô tả sản phẩm</h2>
-						<div class="panel" style="display: block;">
-							<p>
-								<strong>Đánh giá HP Elitebook Folio 9480M</strong>
-							</p>
-							<p>HP Elitebook Folio 9480M cấu hình cao, kiểu dáng đẹp và
-								màu sắc sang trọng HP Elitebook Folio 9480M sự lựa chọn hoàn hảo
-								nhất cho các bạn nữ và nhân viên văn phòng nói chung. Đó là
-								những gì chúng ta có thể thấy được ở HP Elitebook Folio
-								9480M.</p>
-							<p>
-								<img class="aligncenter wp-image-8399 size-large"
-									src="https://laptopphonglinh.com/wp-content/uploads/2017/01/HP-elitebook-folio-i5-1024x1024.jpg"
-									alt="" width="940" height="940">
-							</p>
-							<p>
-								<strong>LAPTOP HP Elitebook Folio 9480M</strong> là một mẫu sản
-								phẩm với thân hình mỏng nhẹ và mang phong cách rất riêng của
-								mình. <strong>HP Elitebook Folio 9480M</strong> nằm trong danh
-								sách Ultrabook nên có thiết kế rất đẹp mắt nhưng cũng rất mạnh
-								mẽ trên thị trường hiện nay.
-							</p>
+					<div class="row text-center">
+						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+							<button type="button" class="btn btn-success text-center">Đặt mua</button>
 						</div>
-					</div>
-					<div id="products_reviews" class="tabcontent">
-						<h3>Paris</h3>
-						<p>Paris is the capital of France.</p>
+						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+							<div class="alert alert-info text-center" role="alert">
+								Giá: <% System.out.format("%9f", product.getPrice()); %> VNĐ
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		<div class="clearfix"></div>
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="tab">
+					<button class="tablinks"
+						onclick="openCity(event, 'products_describe')">Mô tả</button>
+					<button class="tablinks"
+						onclick="openCity(event, 'products_reviews')">Đánh giá</button>
+				</div>
+				<div id="products_describe" class="tabcontent">
+					<h2>Mô tả sản phẩm</h2>
+					<div class="panel" style="display: block;">
+						<p>
+							<strong>Đánh giá HP Elitebook Folio 9480M</strong>
+						</p>
+						<p>HP Elitebook Folio 9480M cấu hình cao, kiểu dáng đẹp và màu
+							sắc sang trọng HP Elitebook Folio 9480M sự lựa chọn hoàn hảo
+							nhất cho các bạn nữ và nhân viên văn phòng nói chung. Đó là
+							những gì chúng ta có thể thấy được ở HP Elitebook Folio
+							9480M.</p>
+						<p>
+							<img class="aligncenter wp-image-8399 size-large"
+								src="https://laptopphonglinh.com/wp-content/uploads/2017/01/HP-elitebook-folio-i5-1024x1024.jpg"
+								alt="" width="940" height="940">
+						</p>
+						<p>
+							<strong>LAPTOP HP Elitebook Folio 9480M</strong> là một mẫu sản
+							phẩm với thân hình mỏng nhẹ và mang phong cách rất riêng của
+							mình. <strong>HP Elitebook Folio 9480M</strong> nằm trong danh
+							sách Ultrabook nên có thiết kế rất đẹp mắt nhưng cũng rất mạnh mẽ
+							trên thị trường hiện nay.
+						</p>
+					</div>
+				</div>
+				<div id="products_reviews" class="tabcontent">
+					<h3>Paris</h3>
+					<p>Paris is the capital of France.</p>
+				</div>
+			</div>
+		</div>
+	</div>
 	</div>
 	<jsp:include page="./includes/footer.jsp"></jsp:include>
 	<script>

@@ -1,6 +1,7 @@
 package cmc.com.vn.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -17,13 +18,17 @@ public class ProductDao {
    * @throws SQLException
    * @throws ClassNotFoundException
    */
+	private static final String SELECT_ALL_QUERY = "SELECT * FROM dbo.Product";
+	private static final String SELECT_BY_CATEGORYID_QUERY = "SELECT * FROM dbo.Product WHERE CategoryId = ?";
+	private static final String SELECT_BY_PRODUCTID_QUERY = "SELECT * FROM dbo.Product WHERE ProductId = ?";
+	private static final String INSERT_QUERY = "INSERT INTO dbo.Product VALUES(?,?,?,?,?)";
+	
   public List<Product> getAllProduct() throws SQLException,
       ClassNotFoundException {
     List<Product> list = new ArrayList<Product>();
     Connection connection = ConnectDb.connect();
-    String sql = "SELECT * FROM dbo.Product";
     Statement statement = connection.createStatement();
-    ResultSet resultSet = statement.executeQuery(sql);
+    ResultSet resultSet = statement.executeQuery(SELECT_ALL_QUERY);
     while (resultSet.next()) {
       Product product = new Product();
       product.setProductId(resultSet.getInt(1));
@@ -39,9 +44,9 @@ public class ProductDao {
   public List<Product> getProductByCategoryId(int id) throws ClassNotFoundException, SQLException {
     List<Product> list = new ArrayList<Product>();
     Connection connection = ConnectDb.connect();
-    String sql = "SELECT * FROM dbo.Product WHERE CategoryId = " + String.valueOf(id);
-    Statement statement = connection.createStatement();
-    ResultSet resultSet = statement.executeQuery(sql);
+    PreparedStatement preparedStatement = connection.prepareStatement(SELECT_BY_CATEGORYID_QUERY);
+    preparedStatement.setInt(1, id);
+    ResultSet resultSet = preparedStatement.executeQuery();
     while (resultSet.next()){
       Product product = new Product();
       product.setProductId(resultSet.getInt(1));
@@ -57,9 +62,9 @@ public class ProductDao {
   public Product getProductById(int id) throws SQLException,ClassNotFoundException{
     Product product = new Product();
     Connection connection = ConnectDb.connect();
-    final String SELECT_QUERY = "SELECT * FROM dbo.Product WHERE ProductId = "+String.valueOf(id);
-    Statement statement = connection.createStatement();
-    ResultSet resultSet = statement.executeQuery(SELECT_QUERY);
+    PreparedStatement preparedStatement = connection.prepareStatement(SELECT_BY_PRODUCTID_QUERY);
+    preparedStatement.setInt(1, id);
+    ResultSet resultSet = preparedStatement.executeQuery();
     while (resultSet.next()){
       product.setProductId(resultSet.getInt(1));
       product.setProductName(resultSet.getString(2));
@@ -71,4 +76,17 @@ public class ProductDao {
     }
     return product;
   }
+
+	public boolean insertProduct(Product product) throws SQLException, ClassNotFoundException {
+		Connection connection = ConnectDb.connect();
+		PreparedStatement preparedStatement = connection.prepareStatement(INSERT_QUERY);
+		preparedStatement.setString(1, product.getProductName());
+		preparedStatement.setInt(2, product.getCaterogyId());
+		preparedStatement.setFloat(3, product.getPrice());
+		preparedStatement.setString(4, product.getDescription());
+		preparedStatement.setString(5, product.getImage());
+
+		boolean check = preparedStatement.executeUpdate() > 0;
+		return check;
+	}
 }
