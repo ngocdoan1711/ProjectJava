@@ -8,11 +8,11 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <title>Adminstrator Page</title>
-<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="lib/metisMenu/metisMenu.min.css" rel="stylesheet">
-<link href="css/custom.css" rel="stylesheet">
-<link href="lib/morrisjs/morris.css" rel="stylesheet">
-<link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet"
+<link href="${pageContext.request.contextPath}/admin/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/admin/lib/metisMenu/metisMenu.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/admin/css/custom.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/admin/lib/morrisjs/morris.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/admin/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet"
 	type="text/css">
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script
@@ -87,7 +87,7 @@
 								<div class="row no-gutters">
 									<div class="col-6 col-md-4"></div>
 									<div class="col-12 col-sm-6 col-md-8">
-										<a href="#" class="btn btn-success">Add</a>
+										<a href="${pageContext.request.contextPath}/#" class="btn btn-success">Add</a>
 									</div>
 								</div>
 							</div>

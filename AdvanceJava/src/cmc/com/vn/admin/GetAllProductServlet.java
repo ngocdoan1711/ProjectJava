@@ -37,7 +37,7 @@ public class GetAllProductServlet extends HttpServlet {
 		try {
       list = productDao.getAllProduct();
       request.setAttribute("product", list);
-      RequestDispatcher requestDispatcher = request.getRequestDispatcher("admin/product.jsp");
+      RequestDispatcher requestDispatcher = request.getRequestDispatcher("/admin/product.jsp");
       requestDispatcher.forward(request, response);
     } catch (ClassNotFoundException e) {
       // TODO Auto-generated catch block

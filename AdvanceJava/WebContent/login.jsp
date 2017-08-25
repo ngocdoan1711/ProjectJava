@@ -7,12 +7,12 @@
 <head>
 <title>Login - CMC Laptop</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
 </head>
 <%
-  String error = (String) request.getAttribute("error");
+  String error = (String) request.getAttribute("error-login");
 %>
 <body class="fullscreen-centered page-login">
 	<div id="background-wrapper" class="benches"
@@ -20,7 +20,7 @@
 		<div id="content">
 			<div class="header">
 				<div class="header-inner">
-					<a class="navbar-brand center-block" href="index.jsp" title="Home"></a>
+					<a class="navbar-brand center-block" href="${pageContext.request.contextPath}/index.jsp" title="Home"></a>
 				</div>
 			</div>
 			<div class="row">
@@ -45,14 +45,15 @@
 										<div class="input-group input-group-lg">
 											<span class="input-group-addon"><i
 												class="fa fa-fw fa-envelope"></i></span> <input type="text"
-												class="form-control" placeholder="Username" name="username" />
+												class="form-control" placeholder="UserName" name="username" >
 										</div>
 									</div>
 									<div class="form-group">
 										<div class="input-group input-group-lg">
-											<span class="input-group-addon"><i
-												class="fa fa-fw fa-lock"></i></span> <input type="password"
-												class="form-control" placeholder="Password" name="password" />
+											<span class="input-group-addon">
+												<i class="fa fa-fw fa-lock"></i>
+											</span>
+											<input type="password" class="form-control" placeholder="Password" name="password" >
 										</div>
 									</div>
 									<div class="checkbox">
@@ -65,7 +66,7 @@
 								</fieldset>
 							</form>
 							<p class="m-b-0 m-t">
-								Not signed up? <a href="register.jsp">Sign up here</a>.
+								Not signed up? <a href="${pageContext.request.contextPath}/register.jsp">Sign up here</a>.
 							</p>
 						</div>
 					</div>
@@ -73,7 +74,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="lib/jquery/jquery.min.js"></script>
-	<script src="js/custom.js"></script>
+	<script src="${pageContext.request.contextPath}/lib/jquery/jquery.min.js"></script>
+	<script src="${pageContext.request.contextPath}/js/custom.js"></script>
 </body>
 </html>

@@ -8,11 +8,11 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <title>Adminstrator Page</title>
-<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="lib/metisMenu/metisMenu.min.css" rel="stylesheet">
-<link href="css/custom.css" rel="stylesheet">
-<link href="lib/morrisjs/morris.css" rel="stylesheet">
-<link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet"
+<link href="${pageContext.request.contextPath}/${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/lib/metisMenu/metisMenu.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/custom.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/lib/morrisjs/morris.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet"
 	type="text/css">
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script
@@ -20,7 +20,7 @@
 </head>
 <body>
 	<div id="wrapper">
-		<jsp:include page="./includes/navigation.jsp"></jsp:include>
+		<jsp:include page="${pageContext.request.contextPath}/admin/includes/navigation.jsp"></jsp:include>
 		<div id="page-wrapper">
 			<div class="row">
 				<div class="col-lg-12">
@@ -44,7 +44,7 @@
 								<div class="row no-gutters">
 									<div class="col-6 col-md-4"></div>
 									<div class="col-12 col-sm-6 col-md-8">
-										<a href="#" class="btn btn-success">Add</a>
+										<a href="${pageContext.request.contextPath}/#" class="btn btn-success">Add</a>
 									</div>
 								</div>
 							</div>

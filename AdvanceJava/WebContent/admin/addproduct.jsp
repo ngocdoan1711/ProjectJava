@@ -19,7 +19,7 @@
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script	src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <!-- Loading CKFinder -->
-<script type="text/javascript" src="${pageContext.request.contextPath}/ckfinder.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/ckfinder/ckfinder.js"></script>
 <script type="text/javascript">
     function BrowseServer() {
         var finder = new CKFinder();
@@ -83,7 +83,10 @@
 										<label class="label-input">Description</label>
 									</div>
 									<div class="col-12 col-sm-6 col-md-8">
-										<input type="text" class="form-control" name="description">
+										<textarea name="description">
+											Describe your Laptop by HTML code!
+										</textarea>
+										<!-- <input type="text" class="form-control" name="description"> -->
 									</div>
 								</div>
 								<div class="row no-gutters">
