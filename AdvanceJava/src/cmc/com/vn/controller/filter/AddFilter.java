@@ -39,7 +39,7 @@ public class AddFilter implements Filter {
 		RequestDispatcher rDispatcher;
 		HttpSession session = ((HttpServletRequest) request).getSession();
 		User user = (User) session.getAttribute("user");
-		if (user != null)
+		if (user == null)
 		{
 	      rDispatcher = request.getRequestDispatcher("/login.jsp");
 	      rDispatcher.forward(request, response);

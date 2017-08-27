@@ -1,6 +1,7 @@
 /**
  * Created by User on 8/22/2017.
  */
+
 $(function() {
     $('#side-menu').metisMenu();
 });

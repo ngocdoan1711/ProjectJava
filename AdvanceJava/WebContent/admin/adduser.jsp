@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>Add Category</title>
+<title>Add User Page</title>
 <link
 	href="${pageContext.request.contextPath}/admin/lib/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -28,7 +28,7 @@
 </head>
 <body>
 	<div id="wrapper">
-		<jsp:include page="includes/navigation.jsp"></jsp:include>
+		<jsp:include page="/admin/includes/navigation.jsp"></jsp:include>
 		<div id="page-wrapper">
 			<div class="row">
 				<div class="col-lg-12">
@@ -38,17 +38,59 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="panel panel-default">
-						<div class="panel-heading">Add Category</div>
-						<form action="<%=request.getContextPath()%>/admin/DoAddCategory"
-							method="post">
+						<div class="panel-heading">Add User</div>
+						<form action="<%=request.getContextPath()%>/admin/DoAddUser" method="post">
 							<div class="panel-body">
 								<div class="row">
 									<div class="row no-gutters">
 										<div class="col-6 col-md-4">
-											<label class="label-input">Category name</label>
+											<label class="label-input">Username</label>
 										</div>
 										<div class="col-12 col-sm-6 col-md-8">
-											<input class="form-control" name="categoryName">
+											<input class="form-control" name="userName">
+										</div>
+									</div>
+									<div class="row no-gutters">
+										<div class="col-6 col-md-4">
+											<label class="label-input">Password</label>
+										</div>
+										<div class="col-12 col-sm-6 col-md-8">
+											<input type="password" class="form-control" name="password">
+										</div>
+									</div>
+									<div class="row no-gutters">
+										<div class="col-6 col-md-4">
+											<label class="label-input">Retype password</label>
+										</div>
+										<div class="col-12 col-sm-6 col-md-8">
+											<input type="password" class="form-control" name="repassword">
+										</div>
+									</div>
+									<div class="row no-gutters">
+										<div class="col-6 col-md-4">
+											<label class="label-input">Email</label>
+										</div>
+										<div class="col-12 col-sm-6 col-md-8">
+											<input class="form-control" name="email">
+										</div>
+									</div>
+									<div class="row no-gutters">
+										<div class="col-6 col-md-4">
+											<label class="label-input">Phone</label>
+										</div>
+										<div class="col-12 col-sm-6 col-md-8">
+											<input class="form-control" name="phone">
+										</div>
+									</div>
+									<div class="row no-gutters">
+										<div class="col-6 col-md-4">
+											<label class="label-input">Access</label>
+										</div>
+										<div class="col-12 col-sm-6 col-md-8">
+											<select class="form-control" name="access">
+												<option value="1">Adminstrator</option>
+												<option value="2">Normal User</option>
+											</select>
 										</div>
 									</div>
 									<div class="row no-gutters">

@@ -60,45 +60,7 @@
 								<div class="product-description">
 									<h2 class="quick-overview">MÔ TẢ SẢN PHẨM:</h2>
 									<p></p>
-									<table class="table-description">
-										<tbody>
-											<tr class="tr-no-bold">
-												<td class="tr-td-bold">CPU</td>
-												<td class="tr-td-no-bold">Intel Core i5-4210U (1.7 ~
-													2.7hz), 3MB Cache</td>
-											</tr>
-											<tr class="tr-bold">
-												<td class="tr-td-bold">RAM</td>
-												<td class="tr-td-no-bold">4GB 1600Mhz – DDR3</td>
-											</tr>
-											<tr class="tr-no-bold">
-												<td class="tr-td-bold">Ổ Cứng</td>
-												<td class="tr-td-no-bold">128GB – SSDD – Sata 6GB/s</td>
-											</tr>
-											<tr class="tr-bold">
-												<td class="tr-td-bold">Màn hình</td>
-												<td class="tr-td-no-bold">14″ HD (1366*768), Antiglare,
-													LED</td>
-											</tr>
-											<tr class="tr-no-bold">
-												<td class="tr-td-bold">VGA</td>
-												<td class="tr-td-no-bold">Intel® HD Graphics 4400</td>
-											</tr>
-											<tr class="tr-bold">
-												<td class="tr-td-bold">Khối lượng</td>
-												<td class="tr-td-no-bold">1.6 Kg.</td>
-											</tr>
-											<tr class="tr-no-bold">
-												<td class="tr-td-bold">Cổng kết nối</td>
-												<td class="tr-td-no-bold">USB 3.0, Display Port,eSATA</td>
-											</tr>
-											<tr class="tr-bold">
-												<td class="tr-td-bold">CPU</td>
-												<td class="tr-td-no-bold">Intel Core i5-4210U (1.7 ~
-													2.7hz), 3MB Cache</td>
-											</tr>
-										</tbody>
-									</table>
+									<%=product.getDescription() %>
 								</div>
 							</div>
 							<div class="clearfix"></div>

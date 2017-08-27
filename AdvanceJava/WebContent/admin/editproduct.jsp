@@ -1,3 +1,4 @@
+<%@page import="cmc.com.vn.model.Product"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="cmc.com.vn.model.Category"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -10,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>Adminstrator Page</title>
+<title>Edit Product</title>
 <link
 	href="${pageContext.request.contextPath}/admin/lib/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -45,6 +46,7 @@
 </head>
 <body>
 	<%
+		Product product = (Product)request.getAttribute("product");
 		ArrayList<Category> listCategory = (ArrayList<Category>) request.getAttribute("allCategory");
 	%>
 	<div id="wrapper">
@@ -58,8 +60,8 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="panel panel-default">
-						<div class="panel-heading">Add Product</div>
-						<form action="<%=request.getContextPath() %>/admin/DoAddProduct" method="post">
+						<div class="panel-heading">Edit Product</div>
+						<form action="<%=request.getContextPath() %>/admin/DoEditProduct" method="post">
 							<div class="panel-body">
 								<div class="row">
 									<div class="row no-gutters">
@@ -67,7 +69,8 @@
 											<label class="label-input">Product name</label>
 										</div>
 										<div class="col-12 col-sm-6 col-md-8">
-											<input class="form-control" name="productName" />
+											<input type="hidden" name="productId" value="<%=product.getProductId() %>"/>
+											<input class="form-control" name="productName" value="<%=product.getProductName() %>" />
 										</div>
 									</div>
 									<div class="row no-gutters">
@@ -79,7 +82,8 @@
 												<%
 													for (Category category : listCategory) {
 												%>
-												<option value="<%=category.getCategoryId()%>"><%=category.getCategoryName()%></option>
+												<option value="<%=category.getCategoryId()%>"<%
+												if (category.getCategoryId() == product.getCaterogyId()){%>selected<%}%>><%=category.getCategoryName()%></option>
 												<%
 													}
 												%>
@@ -91,7 +95,7 @@
 											<label class="label-input">Price</label>
 										</div>
 										<div class="col-12 col-sm-6 col-md-8">
-											<input type="text" class="form-control" name="price">
+											<input type="text" class="form-control" name="price" value="<%=product.getPrice() %>">
 										</div>
 									</div>
 									<div class="row no-gutters">
@@ -99,9 +103,8 @@
 											<label class="label-input">Description</label>
 										</div>
 										<div class="col-12 col-sm-6 col-md-8">
-											<textarea cols="100" rows="15" name="description">Describe your Laptop by HTML code!
+											<textarea cols="100" rows="15" name="description"><%=product.getDescription() %>
 										</textarea>
-											<!-- <input type="text" class="form-control" name="description"> -->
 										</div>
 									</div>
 									<div class="row no-gutters">
@@ -109,14 +112,15 @@
 											<label class="label-input">Choose image</label>
 										</div>
 										<div class="col-12 col-sm-6 col-md-8">
-											<input type="text" name="image" id="Image" /> <input
-												type="button" value="Chọn ảnh ..." onclick="BrowseServer();" />
+											<input type="hidden" name="image" id="Image" value="<%=product.getImage() %>" />
+											<img class="small-img" src="<%=product.getImage() %>">
+											<input type="button" value="Chọn ảnh ..." onclick="BrowseServer();" />
 										</div>
 									</div>
 									<div class="row no-gutters">
 										<div class="col-6 col-md-4"></div>
 										<div class="col-12 col-sm-6 col-md-8">
-											<input type="submit" class="btn btn-success" value="Add">
+											<input type="submit" class="btn btn-success" value="Edit">
 										</div>
 									</div>
 								</div>

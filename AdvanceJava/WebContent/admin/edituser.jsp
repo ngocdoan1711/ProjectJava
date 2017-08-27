@@ -1,8 +1,6 @@
-<%@page import="java.util.ArrayList"%>
-<%@page import="cmc.com.vn.model.Category"%>
+<%@page import="cmc.com.vn.model.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://cksource.com/ckfinder" prefix="ckfinder"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
@@ -10,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>Adminstrator Page</title>
+<title>Edit User Page</title>
 <link
 	href="${pageContext.request.contextPath}/admin/lib/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -28,27 +26,13 @@
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script
 	src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<!-- Loading CKFinder -->
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/ckfinder/ckfinder.js"></script>
-<script type="text/javascript">
-	function BrowseServer() {
-		var finder = new CKFinder();
-		//finder.basePath = '../';
-		finder.selectActionFunction = SetFileField;
-		finder.popup();
-	}
-	function SetFileField(fileUrl) {
-		document.getElementById('Image').value = fileUrl;
-	}
-</script>
 </head>
 <body>
-	<%
-		ArrayList<Category> listCategory = (ArrayList<Category>) request.getAttribute("allCategory");
-	%>
+<%
+	User user = (User) request.getAttribute("user");
+%>
 	<div id="wrapper">
-		<jsp:include page="./includes/navigation.jsp"></jsp:include>
+		<jsp:include page="/admin/includes/navigation.jsp"></jsp:include>
 		<div id="page-wrapper">
 			<div class="row">
 				<div class="col-lg-12">
@@ -58,68 +42,70 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="panel panel-default">
-						<div class="panel-heading">Add Product</div>
-						<form action="<%=request.getContextPath() %>/admin/DoAddProduct" method="post">
+						<div class="panel-heading">Edit User</div>
+						<form action="<%=request.getContextPath()%>/admin/DoEditUser" method="post">
 							<div class="panel-body">
 								<div class="row">
 									<div class="row no-gutters">
 										<div class="col-6 col-md-4">
-											<label class="label-input">Product name</label>
+											<label class="label-input">Username</label>
 										</div>
 										<div class="col-12 col-sm-6 col-md-8">
-											<input class="form-control" name="productName" />
+											<input type="hidden" name="userId" value="<%=user.getUserId() %>"/>
+											<input class="form-control" name="userName" value="<%=user.getUserName() %>">
 										</div>
 									</div>
 									<div class="row no-gutters">
 										<div class="col-6 col-md-4">
-											<label class="label-input">Category</label>
+											<label class="label-input">Password</label>
 										</div>
 										<div class="col-12 col-sm-6 col-md-8">
-											<select class="form-control" name="categoryId">
-												<%
-													for (Category category : listCategory) {
-												%>
-												<option value="<%=category.getCategoryId()%>"><%=category.getCategoryName()%></option>
-												<%
-													}
-												%>
+											<input type="password" class="form-control" name="password">
+										</div>
+									</div>
+									<div class="row no-gutters">
+										<div class="col-6 col-md-4">
+											<label class="label-input">Retype password</label>
+										</div>
+										<div class="col-12 col-sm-6 col-md-8">
+											<input type="password" class="form-control" name="repassword">
+										</div>
+									</div>
+									<div class="row no-gutters">
+										<div class="col-6 col-md-4">
+											<label class="label-input">Email</label>
+										</div>
+										<div class="col-12 col-sm-6 col-md-8">
+											<input class="form-control" name="email" value="<%=user.getEmail() %>">
+										</div>
+									</div>
+									<div class="row no-gutters">
+										<div class="col-6 col-md-4">
+											<label class="label-input">Phone</label>
+										</div>
+										<div class="col-12 col-sm-6 col-md-8">
+											<input class="form-control" name="phone" value="<%=user.getPhone() %>">
+										</div>
+									</div>
+									<div class="row no-gutters">
+										<div class="col-6 col-md-4">
+											<label class="label-input">Access</label>
+										</div>
+										<div class="col-12 col-sm-6 col-md-8">
+											<select class="form-control" name="access">
+												<option value="1" <% if(user.getAccess()==1){ %> selected<%} %>>Adminstrator</option>
+												<option value="2"<% if(user.getAccess()!=1){ %> selected<%} %>>Normal User</option>
 											</select>
-										</div>
-									</div>
-									<div class="row no-gutters">
-										<div class="col-6 col-md-4">
-											<label class="label-input">Price</label>
-										</div>
-										<div class="col-12 col-sm-6 col-md-8">
-											<input type="text" class="form-control" name="price">
-										</div>
-									</div>
-									<div class="row no-gutters">
-										<div class="col-6 col-md-4">
-											<label class="label-input">Description</label>
-										</div>
-										<div class="col-12 col-sm-6 col-md-8">
-											<textarea cols="100" rows="15" name="description">Describe your Laptop by HTML code!
-										</textarea>
-											<!-- <input type="text" class="form-control" name="description"> -->
-										</div>
-									</div>
-									<div class="row no-gutters">
-										<div class="col-6 col-md-4">
-											<label class="label-input">Choose image</label>
-										</div>
-										<div class="col-12 col-sm-6 col-md-8">
-											<input type="text" name="image" id="Image" /> <input
-												type="button" value="Chọn ảnh ..." onclick="BrowseServer();" />
 										</div>
 									</div>
 									<div class="row no-gutters">
 										<div class="col-6 col-md-4"></div>
 										<div class="col-12 col-sm-6 col-md-8">
-											<input type="submit" class="btn btn-success" value="Add">
+											<input type="submit" class="btn btn-success" value="Edit">
 										</div>
 									</div>
 								</div>
+
 							</div>
 						</form>
 					</div>

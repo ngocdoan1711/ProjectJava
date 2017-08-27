@@ -51,7 +51,7 @@
 						Dashboard</a></li>
 				<li><a href="${pageContext.request.contextPath}/admin/GetAllUser"><i class="fa fa-user fa-fw"></i>
 						User Manager</a></li>
-				<li><a href="${pageContext.request.contextPath}/admin/category.jsp"><i class="fa fa-tags fa-fw"></i>
+				<li><a href="${pageContext.request.contextPath}/admin/GetAllCategory"><i class="fa fa-tags fa-fw"></i>
 						Category Manager</a></li>
 				<li><a href="${pageContext.request.contextPath}/admin/GetAllProduct"><i class="fa fa-laptop fa-fw"></i>
 						Product Manager</a></li>

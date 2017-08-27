@@ -2,9 +2,7 @@ package cmc.com.vn.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -56,13 +54,10 @@ public class CategoryServlet extends HttpServlet {
     CategoryDao categoryDao = new CategoryDao();
     ProductDao productDao = new ProductDao();
     try {
-      List<Product> list = productDao.getProductByCategoryId(id);
+      Product product = productDao.getProductByCategoryId(id);
       Category category = categoryDao.getCategoryById(id);
-      request.setAttribute("products", list);
+      request.setAttribute("products", product);
       request.setAttribute("category", category);
-      RequestDispatcher requestDispatcher;
-      requestDispatcher = request.getRequestDispatcher("productcategories.jsp");
-      requestDispatcher.forward(request, response);
     } catch (ClassNotFoundException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
@@ -70,6 +65,7 @@ public class CategoryServlet extends HttpServlet {
       // TODO Auto-generated catch block
       e.printStackTrace();
     }
+    request.getRequestDispatcher("/productcategories.jsp").forward(request, response);
   }
 
   /**

@@ -64,7 +64,7 @@
     <description></description>
     <display-name>AddUserServlet</display-name>
     <servlet-name>AddUserServlet</servlet-name>
-    <servlet-class>cmc.com.vn.admin.AddUserServlet</servlet-class>
+    <servlet-class>cmc.com.vn.controller.admin.AddUserServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>AddUserServlet</servlet-name>
@@ -74,7 +74,7 @@
     <description></description>
     <display-name>GetAllUserServlet</display-name>
     <servlet-name>GetAllUserServlet</servlet-name>
-    <servlet-class>cmc.com.vn.admin.GetAllUserServlet</servlet-class>
+    <servlet-class>cmc.com.vn.controller.admin.GetAllUserServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>GetAllUserServlet</servlet-name>
@@ -84,7 +84,7 @@
     <description></description>
     <display-name>GetAllProductServlet</display-name>
     <servlet-name>GetAllProductServlet</servlet-name>
-    <servlet-class>cmc.com.vn.admin.GetAllProductServlet</servlet-class>
+    <servlet-class>cmc.com.vn.controller.admin.GetAllProductServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>GetAllProductServlet</servlet-name>
@@ -94,7 +94,7 @@
     <description></description>
     <display-name>AddProductServlet</display-name>
     <servlet-name>AddProductServlet</servlet-name>
-    <servlet-class>cmc.com.vn.admin.AddProductServlet</servlet-class>
+    <servlet-class>cmc.com.vn.controller.admin.AddProductServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>AddProductServlet</servlet-name>
@@ -104,7 +104,7 @@
     <description></description>
     <display-name>DoAddProductServlet</display-name>
     <servlet-name>DoAddProductServlet</servlet-name>
-    <servlet-class>cmc.com.vn.admin.DoAddProductServlet</servlet-class>
+    <servlet-class>cmc.com.vn.controller.admin.DoAddProductServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>DoAddProductServlet</servlet-name>
@@ -117,6 +117,166 @@
   </filter>
   <filter-mapping>
     <filter-name>AddFilter</filter-name>
-    <url-pattern>/asdfsadfsd/*</url-pattern>
+    <url-pattern>/sg/*</url-pattern>
   </filter-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditProductServlet</display-name>
+    <servlet-name>EditProductServlet</servlet-name>
+    <servlet-class>cmc.com.vn.controller.admin.EditProductServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditProductServlet</servlet-name>
+    <url-pattern>/admin/EditProduct</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoEditProductServlet</display-name>
+    <servlet-name>DoEditProductServlet</servlet-name>
+    <servlet-class>cmc.com.vn.controller.admin.DoEditProductServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoEditProductServlet</servlet-name>
+    <url-pattern>/admin/DoEditProduct</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteProductServlet</display-name>
+    <servlet-name>DeleteProductServlet</servlet-name>
+    <servlet-class>cmc.com.vn.controller.admin.DeleteProductServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteProductServlet</servlet-name>
+    <url-pattern>/admin/DeleteProduct</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteMultipleProductServlet</display-name>
+    <servlet-name>DeleteMultipleProductServlet</servlet-name>
+    <servlet-class>cmc.com.vn.controller.admin.DeleteMultipleProductServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteMultipleProductServlet</servlet-name>
+    <url-pattern>/admin/DeleteMultipleProduct</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetAllCategoryServlet</display-name>
+    <servlet-name>GetAllCategoryServlet</servlet-name>
+    <servlet-class>cmc.com.vn.controller.admin.GetAllCategoryServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetAllCategoryServlet</servlet-name>
+    <url-pattern>/admin/GetAllCategory</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddCategoryServlet</display-name>
+    <servlet-name>AddCategoryServlet</servlet-name>
+    <servlet-class>cmc.com.vn.controller.admin.AddCategoryServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddCategoryServlet</servlet-name>
+    <url-pattern>/admin/AddCategory</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoAddCategoryServlet</display-name>
+    <servlet-name>DoAddCategoryServlet</servlet-name>
+    <servlet-class>cmc.com.vn.controller.admin.DoAddCategoryServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoAddCategoryServlet</servlet-name>
+    <url-pattern>/admin/DoAddCategory</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditCategoryServlet</display-name>
+    <servlet-name>EditCategoryServlet</servlet-name>
+    <servlet-class>cmc.com.vn.controller.admin.EditCategoryServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditCategoryServlet</servlet-name>
+    <url-pattern>/admin/EditCategory</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoEditCategoryServlet</display-name>
+    <servlet-name>DoEditCategoryServlet</servlet-name>
+    <servlet-class>cmc.com.vn.controller.admin.DoEditCategoryServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoEditCategoryServlet</servlet-name>
+    <url-pattern>/admin/DoEditCategory</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteCategoryServlet</display-name>
+    <servlet-name>DeleteCategoryServlet</servlet-name>
+    <servlet-class>cmc.com.vn.controller.admin.DeleteCategoryServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteCategoryServlet</servlet-name>
+    <url-pattern>/admin/DeleteCategory</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteMultipleCategoryServlet</display-name>
+    <servlet-name>DeleteMultipleCategoryServlet</servlet-name>
+    <servlet-class>cmc.com.vn.controller.admin.DeleteMultipleCategoryServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteMultipleCategoryServlet</servlet-name>
+    <url-pattern>/admin/DeleteMultipleCategory</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoAddUserServlet</display-name>
+    <servlet-name>DoAddUserServlet</servlet-name>
+    <servlet-class>cmc.com.vn.controller.admin.DoAddUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoAddUserServlet</servlet-name>
+    <url-pattern>/admin/DoAddUser</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteUserServlet</display-name>
+    <servlet-name>DeleteUserServlet</servlet-name>
+    <servlet-class>cmc.com.vn.controller.admin.DeleteUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteUserServlet</servlet-name>
+    <url-pattern>/admin/DeleteUser</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteMultipleUserSevlet</display-name>
+    <servlet-name>DeleteMultipleUserSevlet</servlet-name>
+    <servlet-class>cmc.com.vn.controller.admin.DeleteMultipleUserSevlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteMultipleUserSevlet</servlet-name>
+    <url-pattern>/admin/DeleteMultipleUser</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditUserSevlet</display-name>
+    <servlet-name>EditUserSevlet</servlet-name>
+    <servlet-class>cmc.com.vn.controller.admin.EditUserSevlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditUserSevlet</servlet-name>
+    <url-pattern>/admin/EditUser</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoEditUserServlet</display-name>
+    <servlet-name>DoEditUserServlet</servlet-name>
+    <servlet-class>cmc.com.vn.controller.admin.DoEditUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoEditUserServlet</servlet-name>
+    <url-pattern>/admin/DoEditUser</url-pattern>
+  </servlet-mapping>
 </web-app>

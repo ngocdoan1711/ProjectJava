@@ -438,3 +438,7 @@ table.dataTable thead .sorting:after {
 	text-align: right;
 	display:block;
 }
+.small-img{
+	max-height: 160px;
+	max-width: 180px;
+}
