@@ -54,6 +54,8 @@ public class DoEditProductServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		List<Product> list = new ArrayList<Product>();
 		ProductDao productDao = new ProductDao();
 		Product product = new Product();

@@ -51,7 +51,7 @@ Category category = (Category)request.getAttribute("category");
 					  <li class="col-lg-3 col-md-4 col-sm-6 ">
 						<div class="item">
 							<a href="<%=request.getContextPath()%>/Product?ProductId=<%=product.getProductId() %>" class="overlay-wrapper">
-								<img src="<%=product.getImage()%>" alt="Product 1 image" class="img-responsive underlay">
+								<img src="<%=product.getImage()%>" alt="Product 1 image" class="img-responsive underlay medium-image">
 								<span class="overlay">
 								  <span class="overlay-content">
 								  	<span class="h4"><%=product.getProductName() %></span>

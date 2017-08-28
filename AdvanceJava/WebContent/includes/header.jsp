@@ -34,8 +34,8 @@
 					</a>
 						<ul class="dropdown-menu">
 							<li class="dropdown-header">Danh mục Laptop</li>
-							<li><a href="<%=request.getContextPath()%>/Category?CategoryId=1" tabindex="-1" class="menu-item">Laptop thông thường</a></li>
-							<li><a href="<%=request.getContextPath()%>/Category?CategoryId=2" tabindex="-1" class="menu-item">Laptop xách tay</a></li>
+							<li><a href="${pageContext.request.contextPath}/Category?CategoryId=1" tabindex="-1" class="menu-item">Laptop thông thường</a></li>
+							<li><a href="${pageContext.request.contextPath}/Category?CategoryId=2" tabindex="-1" class="menu-item">Laptop xách tay</a></li>
 						</ul></li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown">Các thông tin khác<b class="caret"></b></a>

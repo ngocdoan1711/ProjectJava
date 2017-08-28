@@ -26,9 +26,9 @@
 <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-	<%
-	Product product = (Product) request.getAttribute("product");
-	Category category = (Category) request.getAttribute("category"); 
+<%
+	Product product = (Product)request.getAttribute("product");
+	Category category = (Category)request.getAttribute("category");
 %>
 	<div id="background-wrapper" class="buildings"
 		data-stellar-background-ratio="0.1">
@@ -38,9 +38,9 @@
 		<ul class="breadcrumb">
 			<li><a href="index.html">Trang chủ</a></li>
 			<li><a
-				href="<%=request.getContextPath()%>/Category?CategoryId=<%=category.getCategoryId()%>"><%=category.getCategoryName() %></a></li>
+				href="${pageContext.request.contextPath}/Category?CategoryId=<%=category.getCategoryId()%>"><%=category.getCategoryName() %></a></li>
 			<li><a
-				href="<%=request.getContextPath()%>/Product?ProductId=<%=product.getProductId() %>"><%=product.getProductName() %></a></li>
+				href="${pageContext.request.contextPath}/Product?ProductId=<%=product.getProductId() %>"><%=product.getProductName() %></a></li>
 		</ul>
 		<div id="content" class="container row">
 			<div class="row row-m-g-l">
@@ -73,7 +73,7 @@
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 							<div class="alert alert-info text-center" role="alert">
-								Giá: <% System.out.format("%9f", product.getPrice()); %> VNĐ
+								Giá: <%=product.getPrice() %> VNĐ
 							</div>
 						</div>
 					</div>

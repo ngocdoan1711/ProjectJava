@@ -117,7 +117,7 @@
   </filter>
   <filter-mapping>
     <filter-name>AddFilter</filter-name>
-    <url-pattern>/sg/*</url-pattern>
+    <url-pattern>/aasdfasdmin/*</url-pattern>
   </filter-mapping>
   <servlet>
     <description></description>

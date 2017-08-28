@@ -2,6 +2,7 @@ package cmc.com.vn.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
@@ -49,14 +50,13 @@ public class CategoryServlet extends HttpServlet {
    */
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
-    int id;
-    id = Integer.valueOf(request.getParameter("CategoryId"));
+    int id = Integer.valueOf(request.getParameter("CategoryId"));
     CategoryDao categoryDao = new CategoryDao();
     ProductDao productDao = new ProductDao();
     try {
-      Product product = productDao.getProductByCategoryId(id);
+      List<Product> listProduct = productDao.getProductByCategoryId(id);
       Category category = categoryDao.getCategoryById(id);
-      request.setAttribute("products", product);
+      request.setAttribute("products", listProduct);
       request.setAttribute("category", category);
     } catch (ClassNotFoundException e) {
       // TODO Auto-generated catch block

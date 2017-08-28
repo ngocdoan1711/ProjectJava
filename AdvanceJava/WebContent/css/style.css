@@ -2514,3 +2514,7 @@ div.tab button.active{
     padding:15px;
     position:relative;
 }
+.medium-image{
+	max-height: 238px;
+	max-width: 280px;
+}

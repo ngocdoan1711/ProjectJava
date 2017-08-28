@@ -14,7 +14,7 @@ import cmc.com.vn.ultil.ConnectDb;
 public class CategoryDao {
 	private static final String SELECT_ALL_QUERY = "SELECT * FROM dbo.[Category]";
 	private static final String SELECT_BY_ID = "SELECT * FROM dbo.Category WHERE CategoryId = ?";
-	private static final String SELECT_BY_PRODUCT_ID = "SELECT * FROM dbo.Category WHERE CategoryId IN (SELECT CategoryId FROM dbo.Product WHERE ProductId = ?";
+	private static final String SELECT_BY_PRODUCT_ID = "SELECT * FROM dbo.Category WHERE CategoryId IN (SELECT CategoryId FROM dbo.Product WHERE ProductId = ?)";
 	private static final String INSERT_QUERY = "INSERT INTO dbo.Category VALUES(?)";
 	private static final String UPDATE_QUERY = "UPDATE dbo.Category SET CategoryName = ? WHERE CategoryId = ?";
 	private static final String DELETE_QUERY= "DELETE dbo.Category WHERE CategoryId = ?";

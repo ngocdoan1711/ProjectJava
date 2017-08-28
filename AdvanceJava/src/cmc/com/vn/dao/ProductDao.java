@@ -43,21 +43,23 @@ public class ProductDao {
 		return list;
 	}
 
-	public Product getProductByCategoryId(int id) throws ClassNotFoundException, SQLException {
-		Product product = new Product();
+	public List<Product> getProductByCategoryId(int id) throws ClassNotFoundException, SQLException {
+		List<Product> listProduct = new ArrayList<Product>();
 		Connection connection = ConnectDb.connect();
 		PreparedStatement preparedStatement = connection.prepareStatement(SELECT_BY_CATEGORYID_QUERY);
 		preparedStatement.setInt(1, id);
 		ResultSet resultSet = preparedStatement.executeQuery();
 		while (resultSet.next()) {
-			product.setProductName(resultSet.getString(1));
-			product.setCaterogyId(resultSet.getInt(2));
-			product.setPrice(resultSet.getFloat(3));
-			product.setDescription(resultSet.getString(4));
-			product.setImage(resultSet.getString(5));
-			product.setProductId(resultSet.getInt(6));
+			Product product = new Product();
+			product.setProductId(resultSet.getInt(1));
+			product.setProductName(resultSet.getString(2));
+			product.setCaterogyId(resultSet.getInt(3));
+			product.setPrice(resultSet.getFloat(4));
+			product.setDescription(resultSet.getString(5));
+			product.setImage(resultSet.getString(6));
+			listProduct.add(product);
 		}
-		return product;
+		return listProduct;
 	}
 
 	public Product getProductById(int id) throws SQLException, ClassNotFoundException {
@@ -75,6 +77,7 @@ public class ProductDao {
 			product.setImage(resultSet.getString(6));
 			break;
 		}
+		connection.close();
 		return product;
 	}
 
